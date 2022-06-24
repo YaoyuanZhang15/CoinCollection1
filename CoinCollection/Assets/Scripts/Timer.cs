@@ -74,6 +74,17 @@ private void RunTimer()
         Debug.Log (DisplayTime(currentTime));
     }
 }
+
+public void AddTime()
+{
+if(currentTime>0)
+{
+    currentTime+=10f;
+}
+
+}
+
+
 private void LevelEnd()
  { 
  Debug.Log("level end");
@@ -86,9 +97,12 @@ private string DisplayTime(float timeToDispaly)
  float seconds = Mathf.FloorToInt(timeToDispaly % 60); //calculate timer seconds
  return string.Format("{0:00}:{1:00}", minutes, seconds); //retrun time as string
  }
-    void Awake()
-    { 
+void Awake()
+{ 
  //runs the method to check for the Timer
-        CheckTimerIsInScene();
-    }
+    CheckTimerIsInScene();
+}
+
+
+
 }
