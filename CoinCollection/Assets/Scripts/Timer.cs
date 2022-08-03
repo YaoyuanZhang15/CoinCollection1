@@ -18,6 +18,8 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
+    public GameManager gm;
+    
     static private Timer timer; //Timer instance
     static public Timer LevelTimer { get { return timer; } } //public access to read only timer
     void CheckTimerIsInScene()
@@ -71,11 +73,12 @@ private void RunTimer()
             currentTime = 0; //set time to zero
             timerStopped = true; //stop the timer
         }
-        Debug.Log (DisplayTime(currentTime));
+        gm.timer = DisplayTime(currentTime);
     }
 }
 private void LevelEnd()
- { 
+ {
+        gm.SetTargetState();
  Debug.Log("level end");
  }
 
@@ -90,5 +93,6 @@ private string DisplayTime(float timeToDispaly)
     { 
  //runs the method to check for the Timer
         CheckTimerIsInScene();
+        
     }
 }

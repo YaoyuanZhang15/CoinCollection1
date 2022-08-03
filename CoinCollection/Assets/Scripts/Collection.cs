@@ -45,11 +45,17 @@ public class Collection : MonoBehaviour
                 if (timer != null) { timer.timerStopped = true; }
                 Debug.Log("You win!"); 
             } 
+        gm.collection = (collectablesInCollection + "/" + winCollectAmount);
     }
 
     public void AddToCollection()
     {
         collectablesInCollection++;
         Debug.Log("Collectable Added");
-    }
+    
+     
 }
+    void Awake()
+    { }
+        public GameManager gm;
+        }
